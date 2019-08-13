@@ -10,7 +10,7 @@ namespace HeadFirst__Laboratory2
 {
     class Game
     {
-        public IEnumerable<Enemy> Enemies { get; private set; }
+        public ICollection<Enemy> Enemies { get; private set; }
         public Weapon WeaponInRoom { get; private set; }
 
         private Player player;
@@ -40,7 +40,7 @@ namespace HeadFirst__Laboratory2
         }
         public bool CheckPlayerInventory(string weaponName)
         {
-            return player.Weapon.Contains(weaponName);
+            return player.Weapons.Contains(weaponName);
         }
         public void HitPlayer(int maxDamage, Random random)
         {
@@ -52,7 +52,7 @@ namespace HeadFirst__Laboratory2
         }
         public void Attack(Direction direction, Random random)
         {
-            player.Attack(direction);
+            player.Attack(direction, random);
             foreach (Enemy enemy in Enemies)
                 enemy.Move(random);
         }
@@ -90,7 +90,7 @@ namespace HeadFirst__Laboratory2
                         WeaponInRoom = new Bow(this, GetRandomLocation(random));
                     else
                     {
-                        if (!CheckPlayerInventory("BluePotion"))
+                        if (!CheckPlayerInventory("Blue potion"))
                             WeaponInRoom = new BluePotion(this, GetRandomLocation(random));
                     }
                     break;
@@ -115,7 +115,7 @@ namespace HeadFirst__Laboratory2
                         WeaponInRoom = new Mace(this, GetRandomLocation(random));
                     else
                     {
-                        if (!CheckPlayerInventory("RedPotion"))
+                        if (!CheckPlayerInventory("Red potion"))
                             WeaponInRoom = new RedPotion(this, GetRandomLocation(random));
                     }
                     break;

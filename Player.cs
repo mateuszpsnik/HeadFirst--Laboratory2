@@ -30,11 +30,11 @@ namespace HeadFirst__Laboratory2
 
         public void Hit(int maxDamage, Random random)
         {
-            HitPoints -= random.Next(1, maxDamage);
+            HitPoints -= random.Next(1, maxDamage+1);
         }
         public void IncreaseHealth(int health, Random random)
         {
-            HitPoints += random.Next(1, health);
+            HitPoints += random.Next(1, health+1);
         }
         public void Equip(string weaponName)
         {

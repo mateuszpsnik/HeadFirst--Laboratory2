@@ -22,15 +22,23 @@ namespace HeadFirst__Laboratory2
 
         public bool Nearby(Point locationToCheck, int distance)
         {
-            if ((Math.Abs(location.X - locationToCheck.X) < distance) &&
-                (Math.Abs(location.Y - locationToCheck.Y) < distance))
+            return Nearby(locationToCheck, location, distance);
+        }
+        public bool Nearby(Point locationToCheck, Point currentLocation, int distance)
+        {
+            if ((Math.Abs(currentLocation.X - locationToCheck.X) < distance) &&
+                (Math.Abs(currentLocation.Y - locationToCheck.Y) < distance))
                 return true;
             else
                 return false;
         }
         public Point Move(Direction direction, Rectangle boundaries)
         {
-            Point newLocation = location;
+            return Move(direction, location, boundaries);
+        }
+        public Point Move(Direction direction, Point currentLocation, Rectangle boundaries)
+        {
+            Point newLocation = currentLocation;
             switch (direction)
             {
                 case Direction.Up:
