@@ -122,6 +122,7 @@ namespace HeadFirst__Laboratory2
                 case 8:
                     Application.Exit();
                     break;
+                default: break;
             }
         }
     }
