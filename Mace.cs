@@ -15,11 +15,11 @@ namespace HeadFirst__Laboratory2
 
         public override void Attack(Direction direction, Random random)
         {
-            if (DamageEnemy(Direction.Down, 20, 6, random)) { }
-            else if (DamageEnemy(Direction.Left, 20, 6, random)) { }
-            else if (DamageEnemy(Direction.Up, 20, 6, random)) { }
+            if (DamageEnemy(Direction.Down, 80, 6, random)) { }
+            else if (DamageEnemy(Direction.Left, 80, 6, random)) { }
+            else if (DamageEnemy(Direction.Up, 80, 6, random)) { }
             else
-                DamageEnemy(Direction.Right, 20, 6, random);
+                DamageEnemy(Direction.Right, 80, 6, random);
         }
     }
 }

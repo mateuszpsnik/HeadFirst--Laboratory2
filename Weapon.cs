@@ -10,7 +10,7 @@ namespace HeadFirst__Laboratory2
     abstract class Weapon : Mover
     {
         public bool PickedUp { get; private set; }
-        
+
         public Weapon(Game game, Point location) : base(game, location)
         {
             PickedUp = false;
@@ -20,7 +20,8 @@ namespace HeadFirst__Laboratory2
         public abstract void Attack(Direction direction, Random random);
         protected bool DamageEnemy(Direction direction, int radius, int damage, Random random)
         {
-            Point target = game.PlayerLocation;
+            /*
+             Point target = game.PlayerLocation;
             for (int distance = 0; distance < radius; distance++)
             {
                 foreach (Enemy enemy in game.Enemies)
@@ -32,6 +33,16 @@ namespace HeadFirst__Laboratory2
                     }
                 }
                 target = Move(direction, target, game.Boundaries);
+            }
+             */
+             //I decided to make it simpler.
+            foreach (Enemy enemy in game.Enemies)
+            {
+                if (Nearby(enemy.Location, game.PlayerLocation, radius))
+                {
+                    enemy.Hit(damage, random);
+                    return true;
+                }
             }
             return false;
         }

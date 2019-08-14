@@ -15,7 +15,7 @@ namespace HeadFirst__Laboratory2
 
         public override void Attack(Direction direction, Random random)
         {
-            DamageEnemy(direction, 30, 1, random);
+            DamageEnemy(direction, 120, 1, random);
         }
     }
 }

@@ -20,7 +20,7 @@ namespace HeadFirst__Laboratory2
         }
         private void Form1_Load(object sender, EventArgs e)
         {
-            game = new Game(new Rectangle(117, 86, 630, 233));
+            game = new Game(new Rectangle(78, 57, 420, 155));
             game.NewLevel(random);
             UpdateCharacters();
         }
@@ -103,6 +103,69 @@ namespace HeadFirst__Laboratory2
 
             //weapons
             sword.Visible = false;
+            bow.Visible = false;
+            redPotion.Visible = false;
+            bluePotion.Visible = false;
+            mace.Visible = false;
+            Control weaponControl = null;
+            switch (game.WeaponInRoom.Name)
+            {
+                case "Sword":
+                    weaponControl = sword; break;
+                case "Bow":
+                    weaponControl = bow; break;
+                case "Mace":
+                    weaponControl = mace; break;
+                case "Blue potion":
+                    weaponControl = bluePotion; break;
+                case "Red potion":
+                    weaponControl = redPotion; break;
+                default: break;
+
+            }
+            weaponControl.Visible = true;
+
+            //inventory
+            if (game.CheckPlayerInventory("Sword"))
+                swordInventory.Visible = true;
+            else
+                swordInventory.Visible = false;
+            if (game.CheckPlayerInventory("Bow"))
+                bowInventory.Visible = true;
+            else
+                bowInventory.Visible = false;
+            if (game.CheckPlayerInventory("Mace"))
+                maceInventory.Visible = true;
+            else
+                maceInventory.Visible = false;
+            if (game.CheckPlayerInventory("Blue potion"))
+                bluePotionInventory.Visible = true;
+            else
+                bluePotionInventory.Visible = false;
+            if (game.CheckPlayerInventory("Red potion"))
+                redPotionInventory.Visible = true;
+            else
+                redPotionInventory.Visible = false;
+
+            //the rest
+            weaponControl.Location = game.WeaponInRoom.Location;
+            if (game.WeaponInRoom.PickedUp)
+                weaponControl.Visible = false;
+            else
+                weaponControl.Visible = true;
+
+            if (game.PlayerHitPoints <= 0)
+            {
+                MessageBox.Show("YOU DIED");
+                Application.Exit();
+            }
+
+            if (enemiesShown < 1)
+            {
+                MessageBox.Show("You killed all the enemies at this level.");
+                game.NewLevel(random);
+                UpdateCharacters();
+            }
         }
 
         private void Sword_Click(object sender, EventArgs e)

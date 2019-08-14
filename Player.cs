@@ -49,11 +49,11 @@ namespace HeadFirst__Laboratory2
             location = Move(direction, game.Boundaries);
             if (!game.WeaponInRoom.PickedUp)
             {
-                if (Nearby(game.WeaponInRoom.Location, 1))
+                if (Nearby(game.WeaponInRoom.Location, location, 50))
                 {
+                    game.WeaponInRoom.PickUpWeapon();
                     inventory.Add(game.WeaponInRoom);
-                    if (inventory.Count == 1)
-                        Equip(inventory[0].Name);
+                    Equip(game.WeaponInRoom.Name);
                 }
             }
         }

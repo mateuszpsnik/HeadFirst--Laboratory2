@@ -15,7 +15,7 @@ namespace HeadFirst__Laboratory2
 
         public override void Attack(Direction direction, Random random)
         {
-            if (!DamageEnemy(direction, 10, 3, random))
+            if (!DamageEnemy(direction, 40, 3, random))
             {
                 switch (direction)
                 {
@@ -33,7 +33,7 @@ namespace HeadFirst__Laboratory2
                         break;
                     default: break;
                 }
-                if (!DamageEnemy(direction, 10, 3, random))
+                if (!DamageEnemy(direction, 40, 3, random))
                 {
                     switch (direction)
                     {
@@ -51,7 +51,7 @@ namespace HeadFirst__Laboratory2
                             break;
                         default: break;
                     }
-                    DamageEnemy(direction, 10, 3, random);
+                    DamageEnemy(direction, 40, 3, random);
                 }
             }
         }
