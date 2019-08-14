@@ -12,7 +12,7 @@ namespace HeadFirst__Laboratory2
         public Bat(Game game, Point location) : base(game, location, 6) { }
         public override void Move(Random random)
         {
-            while (HitPoints > 0)
+            if (HitPoints > 0)
             {
                 if (random.Next(0, 2) == 1)
                     location = Move(FindPlayerDirection(game.PlayerLocation), game.Boundaries);

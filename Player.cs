@@ -46,7 +46,7 @@ namespace HeadFirst__Laboratory2
         }
         public void Move(Direction direction)
         {
-            base.location = Move(direction, game.Boundaries);
+            location = Move(direction, game.Boundaries);
             if (!game.WeaponInRoom.PickedUp)
             {
                 if (Nearby(game.WeaponInRoom.Location, 1))

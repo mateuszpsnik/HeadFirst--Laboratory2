@@ -12,7 +12,7 @@ namespace HeadFirst__Laboratory2
         public Ghoul(Game game, Point location) : base(game, location, 10) { }
         public override void Move(Random random)
         {
-            while (HitPoints > 0)
+            if (HitPoints > 0)
             {
                 if (random.Next(0, 3) == 1)
                 {
